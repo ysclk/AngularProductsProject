@@ -16,9 +16,7 @@ export class ProductService {
     return this.httpClient.get(this.baseUrl + id);
   }
 
-  putAirline(data:any, id:number){
-    return this.httpClient.put<any>('/app.component.html', data)
-  }
+
 
 
 }
