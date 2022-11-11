@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Update Product</h1>
+
+    <div mat-dialog-content>
+
+        <form [formGroup]="productForm" action="">
+          <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input readonly formControlName="id" matInput placeholder="">       
+          </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input  formControlName="title" matInput placeholder="">       
+              </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+                <mat-label>Satis</mat-label>
+                <input formControlName="satis"  matInput placeholder=" " #satis>       
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Aciklama</mat-label>
+                <textarea formControlName="aciklama" matInput #aciklama></textarea>
+              </mat-form-field>
+        </form>
+       
+          
+ 
+    
+    <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="updateLocalStorage()">Update</button>
+    </div>
+</div>
