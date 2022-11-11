@@ -50,33 +50,23 @@ export class ProductUpdateComponent implements OnInit {
 //product list updating
   updateLocalStorage(){
     this.products = JSON.parse(localStorage.getItem('productLocal') || '{}')
-    console.log("bas")
-    console.log(this.products)
-    console.log("son")
+
 
     this.products.forEach((element:any)=>{
       if(element.id ===this.editData.id){
-
-        let index = this.products.findIndex(x => x.id === this.editData.id)
-        console.log("editdata.satis" +  this.editData.title)
-        this.products[index].satis = this.productForm.value.satis
+       let index = this.products.findIndex(x => x.id === this.editData.id)
+       this.products[index].satis = this.productForm.value.satis
         this.products[index].aciklama = this.productForm.value.aciklama;
       }
       else{
         this.products.push(this.editData)
-   
-        
-      }
+     }
 
     })
    
     localStorage.setItem('productLocal', JSON.stringify(this.products))
     this.dialogRef.close('update');
-    this.productService.putAirline(this.productForm.value, this.editData.id).subscribe({
-      next: (res) => {
-      alert("noldu");
-      }
-    })
+   
     
   }
   
