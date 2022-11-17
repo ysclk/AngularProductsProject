@@ -69,14 +69,11 @@ export class AppComponent implements OnInit{
     this.dialog.open(ProductUpdateComponent,{
       width:'%100',
       data:row
-    });
-
-   
+    }).afterClosed().subscribe(val => {
+     this.getFromLocalStorage()
+   });   
   }
 
-  //Refresh Product list
-  refreshList(){
-    this.getFromLocalStorage()
-  }
+
 }
 
